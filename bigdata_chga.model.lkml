@@ -18,4 +18,8 @@ explore: transactions_goc {}
 
 explore: transactions_sb {}
 
-explore: revenue_overview {}
+explore: revenue_overview {
+  join: customers {
+    sql_on: lower(${revenue_overview.customerguid}) = lower(${customers.customerid}) ;;
+  }
+}
