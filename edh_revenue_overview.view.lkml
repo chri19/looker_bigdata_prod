@@ -163,6 +163,7 @@ view: revenue_overview {
   measure: sum_turnover {
     type:  sum
     sql: ${turnover_eur} ;;
+    value_format_name: eur
   }
 
   measure: GameWin {
