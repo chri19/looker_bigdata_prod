@@ -50,19 +50,6 @@ view: revenue_overview {
     sql: ${TABLE}.calendardatecet ;;
   }
 
-  dimension_group: changedate {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.changedate ;;
-  }
 
   dimension: currencycode {
     type: string
@@ -80,8 +67,10 @@ view: revenue_overview {
   }
 
   dimension: deviceid {
+    hidden: yes
     type: string
     sql: ${TABLE}.deviceid ;;
+
   }
 
   dimension: gamewin {
@@ -217,6 +206,18 @@ view: revenue_overview {
     type:  sum
     sql: ${turnover_eur} ;;
   }
+
+  measure: GameWin {
+    type: sum
+    sql: ${gamewin} ;;
+  }
+
+  measure: GameWinEur {
+    type: sum
+    sql: ${gamewin_eur} ;;
+  }
+
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
