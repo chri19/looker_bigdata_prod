@@ -7,15 +7,7 @@ view: revenue_overview {
     sql: ${TABLE}.bonuscontextname ;;
   }
 
-  dimension: bonuscosttotal {
-    type: number
-    sql: ${TABLE}.bonuscosttotal ;;
-  }
 
-  dimension: bonuscosttotal_eur {
-    type: number
-    sql: ${TABLE}.bonuscosttotal_eur ;;
-  }
 
   dimension: brandname {
     type: string
@@ -23,6 +15,7 @@ view: revenue_overview {
   }
 
   dimension_group: calendardate {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -133,11 +126,6 @@ view: revenue_overview {
     sql: ${TABLE}.totalaccountingrevenue ;;
   }
 
-  measure: totalaccountingrevenue_eur {
-    type: number
-    sql: ${TABLE}.totalaccountingrevenue_eur ;;
-  }
-
   dimension: turnover {
     hidden: yes
     type: number
@@ -148,6 +136,23 @@ view: revenue_overview {
     hidden: yes
     type: number
     sql: ${TABLE}.turnover_eur ;;
+  }
+
+# ----- Measures ------
+
+  measure: bonuscosttotal {
+    type: sum
+    sql: ${TABLE}.bonuscosttotal ;;
+  }
+
+  measure: bonuscosttotal_eur {
+    type: sum
+    sql: ${TABLE}.bonuscosttotal_eur ;;
+  }
+
+  measure: totalaccountingrevenue_eur {
+    type: number
+    sql: ${TABLE}.totalaccountingrevenue_eur ;;
   }
 
   measure: count {
