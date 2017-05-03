@@ -10,16 +10,35 @@ persist_for: "8 hours"
 
 explore: brands {}
 
-explore: customers {}
+explore: customers {
+  join: customers_info {
+    sql_on: lower(${customers.customerid}) = lower(${customers_info.guid}) ;;
+  }
+}
 
-explore: customers_info {}
+explore: transactions_goc {
+  join: customers {
+    sql_on: lower(${transactions_goc.customerid}) = lower(${customers.customerid}) ;;
+  }
+  join: customers_info {
+    sql_on: lower(${transactions_goc.customerid}) = lower(${customers_info.guid}) ;;
+  }
+}
 
-explore: transactions_goc {}
-
-explore: transactions_sb {}
+explore: transactions_sb {
+  join: customers {
+    sql_on: lower(${transactions_sb.customerid}) = lower(${customers.customerid}) ;;
+  }
+  join: customers_info {
+    sql_on: lower(${transactions_sb.customerid}) = lower(${customers_info.guid}) ;;
+  }
+}
 
 explore: revenue_overview {
   join: customers {
     sql_on: lower(${revenue_overview.customerguid}) = lower(${customers.customerid}) ;;
+  }
+  join: customers_info {
+    sql_on: lower(${revenue_overview.customerguid}) = lower(${customers_info.guid}) ;;
   }
 }
