@@ -3,20 +3,12 @@ view: transactions_goc {
   suggestions: no
 
   dimension: accountid {
+    hidden: yes
     type: number
     value_format_name: id
     sql: ${TABLE}.accountid ;;
   }
 
-  dimension: amount {
-    type: number
-    sql: ${TABLE}.amount ;;
-  }
-
-  dimension: amounteur {
-    type: number
-    sql: ${TABLE}.amounteur ;;
-  }
 
   dimension: bonuscontext {
     type: string
@@ -48,6 +40,7 @@ view: transactions_goc {
   }
 
   dimension: customerid {
+    hidden: yes
     type: string
     sql: ${TABLE}.customerid ;;
   }
@@ -68,6 +61,7 @@ view: transactions_goc {
   }
 
   dimension: gameid {
+    hidden: yes
     type: string
     sql: ${TABLE}.gameid ;;
   }
@@ -75,16 +69,6 @@ view: transactions_goc {
   dimension: gameroundreference {
     type: string
     sql: ${TABLE}.gameroundreference ;;
-  }
-
-  dimension: jackpotamount {
-    type: number
-    sql: ${TABLE}.jackpotamount ;;
-  }
-
-  dimension: jackpotamounteur {
-    type: number
-    sql: ${TABLE}.jackpotamounteur ;;
   }
 
   dimension: providername {
@@ -111,8 +95,32 @@ view: transactions_goc {
     sql: ${TABLE}.transactionid ;;
   }
 
+#------Measures---------------------------------
+
   measure: count {
     type: count
     drill_fields: [providername, brandname]
   }
+
+
+  measure: amount {
+    type: sum
+    sql: ${TABLE}.amount ;;
+  }
+
+  measure: amounteur {
+    type: sum
+    sql: ${TABLE}.amounteur ;;
+  }
+
+  measure: jackpotamount {
+    type: sum
+    sql: ${TABLE}.jackpotamount ;;
+  }
+
+  measure: jackpotamounteur {
+    type: sum
+    sql: ${TABLE}.jackpotamounteur ;;
+  }
+
 }

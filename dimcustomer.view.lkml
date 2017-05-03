@@ -67,35 +67,11 @@ view: customers {
     sql: ${TABLE}.customermarketname ;;
   }
 
-  dimension: encrpytedaddress {
-    type: string
-    sql: ${TABLE}.encrpytedaddress ;;
-  }
-
   dimension: encrpytedbirthdate {
     type: string
     sql: ${TABLE}.encrpytedbirthdate ;;
   }
 
-  dimension: encrpytedemailaddress {
-    type: string
-    sql: ${TABLE}.encrpytedemailaddress ;;
-  }
-
-  dimension: encrpytedfirstname {
-    type: string
-    sql: ${TABLE}.encrpytedfirstname ;;
-  }
-
-  dimension: encrpytedlastname {
-    type: string
-    sql: ${TABLE}.encrpytedlastname ;;
-  }
-
-  dimension: encrpytedzipcode {
-    type: string
-    sql: ${TABLE}.encrpytedzipcode ;;
-  }
 
   dimension: externalcustomerid {
     type: number
@@ -119,50 +95,6 @@ view: customers {
       end;;
   }
 
-  dimension: hashedaddress {
-    type: string
-    sql: ${TABLE}.hashedaddress ;;
-  }
-
-  dimension: hashedbirthdate {
-    type: string
-    sql: ${TABLE}.hashedbirthdate ;;
-  }
-
-  dimension: hashedcellphonenumber {
-    type: string
-    sql: ${TABLE}.hashedcellphonenumber ;;
-  }
-
-  dimension: hashedemailaddress {
-    type: string
-    sql: ${TABLE}.hashedemailaddress ;;
-  }
-
-  dimension: hashedfirstname {
-    type: string
-    sql: ${TABLE}.hashedfirstname ;;
-  }
-
-  dimension: hashedlastname {
-    type: string
-    sql: ${TABLE}.hashedlastname ;;
-  }
-
-  dimension: hashedphonenumber {
-    type: string
-    sql: ${TABLE}.hashedphonenumber ;;
-  }
-
-  dimension: hashedsocialsecuritynumber {
-    type: string
-    sql: ${TABLE}.hashedsocialsecuritynumber ;;
-  }
-
-  dimension: hashedzipcode {
-    type: string
-    sql: ${TABLE}.hashedzipcode ;;
-  }
 
   dimension: inactivereason {
     type: string

@@ -7,15 +7,7 @@ view: revenue_overview {
     sql: ${TABLE}.bonuscontextname ;;
   }
 
-  dimension: bonuscosttotal {
-    type: number
-    sql: ${TABLE}.bonuscosttotal ;;
-  }
 
-  dimension: bonuscosttotal_eur {
-    type: number
-    sql: ${TABLE}.bonuscosttotal_eur ;;
-  }
 
   dimension: brandname {
     type: string
@@ -23,6 +15,7 @@ view: revenue_overview {
   }
 
   dimension_group: calendardate {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -50,19 +43,6 @@ view: revenue_overview {
     sql: ${TABLE}.calendardatecet ;;
   }
 
-  dimension_group: changedate {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.changedate ;;
-  }
 
   dimension: currencycode {
     type: string
@@ -80,16 +60,20 @@ view: revenue_overview {
   }
 
   dimension: deviceid {
+    hidden: yes
     type: string
     sql: ${TABLE}.deviceid ;;
+
   }
 
   dimension: gamewin {
+    hidden: yes
     type: number
     sql: ${TABLE}.gamewin ;;
   }
 
   dimension: gamewin_eur {
+    hidden: yes
     type: number
     sql: ${TABLE}.gamewin_eur ;;
   }
@@ -99,62 +83,15 @@ view: revenue_overview {
     sql: ${TABLE}.isactive ;;
   }
 
-  dimension: loyaltycost {
-    type: number
-    sql: ${TABLE}.loyaltycost ;;
-  }
-
-  dimension: loyaltycost_eur {
-    type: number
-    sql: ${TABLE}.loyaltycost_eur ;;
-  }
-
-  dimension: othercomponents {
-    type: number
-    sql: ${TABLE}.othercomponents ;;
-  }
-
-  dimension: othercomponents_eur {
-    type: number
-    sql: ${TABLE}.othercomponents_eur ;;
-  }
-
-  dimension: partnershipproviderrevenue {
-    type: number
-    sql: ${TABLE}.partnershipproviderrevenue ;;
-  }
-
-  dimension: partnershipproviderrevenue_eur {
-    type: number
-    sql: ${TABLE}.partnershipproviderrevenue_eur ;;
-  }
-
-  dimension: partnershiptotalaccountingrevenue {
-    type: number
-    sql: ${TABLE}.partnershiptotalaccountingrevenue ;;
-  }
-
-  dimension: partnershiptotalaccountingrevenue_eur {
-    type: number
-    sql: ${TABLE}.partnershiptotalaccountingrevenue_eur ;;
-  }
 
   dimension: providername {
     type: string
     sql: ${TABLE}.providername ;;
   }
 
-  dimension: providerrevenue {
-    type: number
-    sql: ${TABLE}.providerrevenue ;;
-  }
-
-  dimension: providerrevenue_eur {
-    type: number
-    sql: ${TABLE}.providerrevenue_eur ;;
-  }
 
   dimension_group: regdate {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -166,11 +103,6 @@ view: revenue_overview {
       year
     ]
     sql: ${TABLE}.regdate ;;
-  }
-
-  dimension: rounds {
-    type: number
-    sql: ${TABLE}.rounds ;;
   }
 
   dimension: segmentlevel01name {
@@ -189,23 +121,38 @@ view: revenue_overview {
   }
 
   dimension: totalaccountingrevenue {
+    hidden: yes
     type: number
     sql: ${TABLE}.totalaccountingrevenue ;;
   }
 
-  dimension: totalaccountingrevenue_eur {
-    type: number
-    sql: ${TABLE}.totalaccountingrevenue_eur ;;
-  }
-
   dimension: turnover {
+    hidden: yes
     type: number
     sql: ${TABLE}.turnover ;;
   }
 
   dimension: turnover_eur {
+    hidden: yes
     type: number
     sql: ${TABLE}.turnover_eur ;;
+  }
+
+# ----- Measures ------
+
+  measure: bonuscosttotal {
+    type: sum
+    sql: ${TABLE}.bonuscosttotal ;;
+  }
+
+  measure: bonuscosttotal_eur {
+    type: sum
+    sql: ${TABLE}.bonuscosttotal_eur ;;
+  }
+
+  measure: totalaccountingrevenue_eur {
+    type: number
+    sql: ${TABLE}.totalaccountingrevenue_eur ;;
   }
 
   measure: count {
@@ -217,6 +164,31 @@ view: revenue_overview {
     type:  sum
     sql: ${turnover_eur} ;;
     value_format_name: eur
+  }
+
+  measure: GameWin {
+    type: sum
+    sql: ${gamewin} ;;
+  }
+
+  measure: GameWinEur {
+    type: sum
+    sql: ${gamewin_eur} ;;
+  }
+
+  measure: rounds {
+    type: sum
+    sql: ${TABLE}.rounds ;;
+  }
+
+  measure: providerrevenue {
+    type: sum
+    sql: ${TABLE}.providerrevenue ;;
+  }
+
+  measure: providerrevenue_eur {
+    type: sum
+    sql: ${TABLE}.providerrevenue_eur ;;
   }
 
   # ----- Sets of fields for drilling ------
