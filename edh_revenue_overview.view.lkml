@@ -140,24 +140,26 @@ view: revenue_overview {
 
 # ----- Measures ------
 
-  measure: bonuscosttotal {
-    type: sum
-    sql: ${TABLE}.bonuscosttotal ;;
-  }
-
-  measure: bonuscosttotal_eur {
-    type: sum
-    sql: ${TABLE}.bonuscosttotal_eur ;;
-  }
-
-  measure: totalaccountingrevenue_eur {
-    type: number
-    sql: ${TABLE}.totalaccountingrevenue_eur ;;
-  }
+  #measure: bonuscosttotal {
+  #  type: sum
+  #  sql: ${TABLE}.bonuscosttotal ;;
+  #}
 
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: sum_bonus_cost_total {
+    type: sum
+    sql: ${TABLE}.bonuscosttotal_eur ;;
+    value_format_name: eur
+  }
+
+  measure: sum_total_accounting_revenue {
+    type: number
+    sql: ${TABLE}.totalaccountingrevenue_eur ;;
+    value_format_name: eur
   }
 
   measure: sum_turnover {
@@ -166,29 +168,32 @@ view: revenue_overview {
     value_format_name: eur
   }
 
-  measure: GameWin {
-    type: sum
-    sql: ${gamewin} ;;
-  }
+  #measure: sum_gamewin {
+  #  type: sum
+  #  sql: ${gamewin} ;;
+  #}
 
-  measure: GameWinEur {
+  measure: sum_gamewin {
     type: sum
     sql: ${gamewin_eur} ;;
+    value_format_name: eur
   }
 
-  measure: rounds {
+  measure: total_rounds {
     type: sum
     sql: ${TABLE}.rounds ;;
+    value_format_name: eur
   }
 
-  measure: providerrevenue {
-    type: sum
-    sql: ${TABLE}.providerrevenue ;;
-  }
+  #measure: sum_provider_revenue {
+  #  type: sum
+  #  sql: ${TABLE}.providerrevenue ;;
+  #}
 
-  measure: providerrevenue_eur {
+  measure: sum_provider_revenue {
     type: sum
     sql: ${TABLE}.providerrevenue_eur ;;
+    value_format_name: eur
   }
 
   # ----- Sets of fields for drilling ------
