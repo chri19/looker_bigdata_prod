@@ -3,21 +3,25 @@ view: customers {
   suggestions: no
 
   dimension: acceptemailoffers {
+    hidden: yes
     type: string
     sql: ${TABLE}.acceptemailoffers ;;
   }
 
   dimension: acceptsmsoffers {
+    hidden: yes
     type: string
     sql: ${TABLE}.acceptsmsoffers ;;
   }
 
   dimension: accepttelesalesoffers {
+    hidden: yes
     type: string
     sql: ${TABLE}.accepttelesalesoffers ;;
   }
 
   dimension: accepttermsandcondition {
+    hidden: yes
     type: string
     sql: ${TABLE}.accepttermsandcondition ;;
   }
@@ -68,6 +72,7 @@ view: customers {
   }
 
   dimension: encrpytedbirthdate {
+    hidden: yes
     type: string
     sql: ${TABLE}.encrpytedbirthdate ;;
   }
@@ -107,6 +112,7 @@ view: customers {
   }
 
   dimension: individual_guid {
+    hidden: yes
     type: string
     sql: ${TABLE}.individual_guid ;;
   }
@@ -122,6 +128,7 @@ view: customers {
   }
 
   dimension_group: lastinfodate {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -136,6 +143,7 @@ view: customers {
   }
 
   dimension_group: lastinfotime {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -155,6 +163,7 @@ view: customers {
   }
 
   dimension: oldcustomerid {
+    hidden: yes
     type: string
     sql: ${TABLE}.oldcustomerid ;;
   }
@@ -179,6 +188,7 @@ view: customers {
   }
 
   dimension: registrationipaddress {
+    hidden: yes
     type: string
     sql: ${TABLE}.registrationipaddress ;;
   }
@@ -203,32 +213,38 @@ view: customers {
   }
 
   dimension: temporaryaccountencourageverificationdate {
+    hidden: yes
     type: string
     sql: ${TABLE}.temporaryaccountencourageverificationdate ;;
   }
 
   dimension: temporaryaccountexpirydate {
+    hidden: yes
     type: string
     sql: ${TABLE}.temporaryaccountexpirydate ;;
   }
 
   dimension: temporaryaccountfreezedate {
+    hidden: yes
     type: string
     sql: ${TABLE}.temporaryaccountfreezedate ;;
   }
 
   dimension: temporaryaccountusefreezeaccount {
+    hidden: yes
     type: string
     sql: ${TABLE}.temporaryaccountusefreezeaccount ;;
   }
 
   dimension: termsandconditionsversionid {
+    hidden: yes
     type: number
     value_format_name: id
     sql: ${TABLE}.termsandconditionsversionid ;;
   }
 
   dimension: timezoneinfoid {
+    hidden: yes
     type: string
     sql: ${TABLE}.timezoneinfoid ;;
   }

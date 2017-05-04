@@ -90,6 +90,7 @@ view: customers_info {
   }
 
   dimension: hashedemailaddress {
+    hidden: yes
     type: string
     sql: ${TABLE}.hashedemailaddress ;;
   }
