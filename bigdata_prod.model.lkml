@@ -6,7 +6,7 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-persist_for: "8 hours"
+persist_for: "8 hours" #caching data for 8 hours
 
 explore: brands {}
 

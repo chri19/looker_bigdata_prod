@@ -13,9 +13,14 @@ view: brands {
     sql: ${TABLE}.brandid ;;
   }
 
-  dimension: brandname {
+  dimension: brandname_raw {
     type: string
     sql:  ${TABLE}.brandname ;;
+  }
+
+  dimension: brandname {
+    type:  string
+    sql: initcap(${brandname_raw}) ;;
   }
 
   dimension: merchantname {
