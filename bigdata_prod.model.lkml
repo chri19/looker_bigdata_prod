@@ -8,8 +8,6 @@ include: "*.dashboard"
 
 persist_for: "8 hours" #caching data for 8 hours
 
-explore: brands {}
-
 explore: customers {
   join: customers_info {
     sql_on: lower(${customers.customerid}) = lower(${customers_info.guid}) ;;
